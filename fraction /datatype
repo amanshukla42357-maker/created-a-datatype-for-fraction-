@@ -1,0 +1,45 @@
+# creating a datatype in python which can access the fraction 
+class Fraction:
+    def __init__(self, n, d):
+        self.num = n
+        self.deno = d 
+
+    def __str__(self):
+        return "{}/{}".format(self.num, self.deno)
+# addition 
+    def __add__(self, other):
+        new_num = self.num *  other.num  # cross multiplication has been done in the new_num
+        new_deno = self.deno * other.deno
+        return Fraction(new_num, new_deno)
+# substraction 
+    def __sub__(self, other):
+      new_num = self.num * other.deno - self.deno * other.num  # cross multiplication has been done in the new_num
+      new_deno = self.deno * other.deno
+      return Fraction(new_num, new_deno)
+    # multiplication 
+    def __mul__(self, other):
+            
+     new_num = self.num *  other.num  # cross multiplication has been done in the new_num
+     new_deno = self.deno * other.deno
+     return Fraction(new_num, new_deno) 
+    #devision  
+    def __truediv__(self, other):
+        new_num = self.num * other.deno   # numerator × denominator of other
+        new_deno = self.deno * other.num  # denominator × numerator of other
+        return Fraction(new_num, new_deno)
+
+
+    
+
+# objects
+s1 = Fraction(96,5)
+s2 = Fraction(74,6)
+
+
+print(type(s1))   # <class '__main__.Fraction'>
+print(s1)         # 9/5
+print(s2)         # 12/24
+print(s1 + s2)    # 276/120
+print(s1-s2)
+print(s1*s2)
+print(s1/s2)
