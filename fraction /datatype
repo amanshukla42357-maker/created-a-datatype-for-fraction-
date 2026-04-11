@@ -8,7 +8,7 @@ class Fraction:
         return "{}/{}".format(self.num, self.deno)
 # addition 
     def __add__(self, other):
-        new_num = self.num *  other.num  # cross multiplication has been done in the new_num
+        new_num = self.num *  other.num + self.deno * other.num   # cross multiplication has been done in the new_num
         new_deno = self.deno * other.deno
         return Fraction(new_num, new_deno)
 # substraction 
